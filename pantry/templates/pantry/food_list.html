@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Pantry Inventory</title>
+</head>
+<body>
+    <h1>Food Pantry Inventory</h1>
+
+    <p>This page displays food items stored in the Django database.</p>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Expiration Date</th>
+        </tr>
+
+        {% for item in food_items %}
+        <tr>
+            <td>{{ item.item_name }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.expiration_date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No food items have been added yet.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="/admin/">Go to Admin Page</a></p>
+</body>
+</html>
